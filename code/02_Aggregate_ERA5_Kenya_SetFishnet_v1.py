@@ -131,7 +131,6 @@ def make_fishnet(outputGridfn,xmin,xmax,ymin,ymax,rows,cols):
 # %%%%%%%%%%%%%%%%%%%%%%% USER-DEFINED PARAMETERS %%%%%%%%%%%%%%%%%%%%%%%%%%%% #
 # Set up directories to read in and output data
 
-# era_dir <- "YOUR LOCAL PATH TO DOWNLOADED .NC FILES"
 #era_dir = "D:\\CAFE_DATA_MANAGEMENT\\ERA5_Python\\era5_daily_heat_aggregation\\ERA5_Out"
 era_dir = "YOUR LOCAL PATH TO DOWNLOADED .NC FILES"
 

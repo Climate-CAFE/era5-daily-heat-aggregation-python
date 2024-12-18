@@ -44,7 +44,6 @@ import pytz
 from pytz import timezone
 from datetime import datetime
 import xvec 
-from functools import reduce
 import re
 
 
@@ -72,12 +71,12 @@ if gpd.__version__ < "1.0.1" or xarray.__version__ < "2024.9.0" \
 # Set up directories to read in and output data
 #
 
-era_dir = "D:\\CAFE_DATA_MANAGEMENT\\ERA5_Python\\era5_daily_heat_aggregation\\ERA5_Out"
-#era_dir = "YOUR LOCAL PATH TO CREATED FISHNET SHAPE FILE"
-geo_dir = "D:\\CAFE_DATA_MANAGEMENT\\ERA5_Python\\era5_daily_heat_aggregation\\GEO"
-#geo_dir = "YOUR LOCAL PATH"
-outdir = "D:\\CAFE_DATA_MANAGEMENT\\ERA5_Python\\era5_daily_heat_aggregation\\OUT"
-#outdir = "YOUR LOCAL PATH"
+#era_dir = "D:\\CAFE_DATA_MANAGEMENT\\ERA5_Python\\era5_daily_heat_aggregation\\ERA5_Out"
+era_dir = "YOUR LOCAL PATH TO CREATED FISHNET SHAPE FILE"
+#geo_dir = "D:\\CAFE_DATA_MANAGEMENT\\ERA5_Python\\era5_daily_heat_aggregation\\GEO"
+geo_dir = "YOUR LOCAL PATH"
+#outdir = "D:\\CAFE_DATA_MANAGEMENT\\ERA5_Python\\era5_daily_heat_aggregation\\OUT"
+outdir = "YOUR LOCAL PATH"
 
 # %%%%%%%%%%%%%%%%%%%%%% LOAD WARDS SHAPEFILE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% #
 #
@@ -170,7 +169,7 @@ except Exception as e:
 		result = np.isclose(updated_fishnetward['UniqueID'], fishnetward['UniqueID'])
 		if all(result):
 			print(":) unique ID's match. Reassigning 'updated_fishnetward' to 'fishnetward'")
-			fishnetward <- updated_fishnetward    
+			fishnetward = updated_fishnetward    
 		else:
 			print("ERROR: Unique IDs do not match") 
 else:
@@ -279,7 +278,7 @@ era_files = glob.glob(os.path.join(era_dir, '*.nc'))
 #
 # Lawrence, M. G. The relationship between relative humidity and the dewpoint 
 # temperature in moist air - A simple conversion and applications. B. Am. 
-# Meteorol. Soc. 86, 225–233, https://doi.org/10.1175/Bams-86-2-225 (2005).
+# Meteorol. Soc. 86, 225ï¿½233, https://doi.org/10.1175/Bams-86-2-225 (2005).
 #
 
 def humidex(t, td):
@@ -310,7 +309,7 @@ tz_country = "Africa/Nairobi"
 
 # Set year to process
 #
-years_to_agg = list(range(2000, 2001))
+years_to_agg = list(range(2000, 2024))
 
 for year in years_to_agg: 
 	print("Now processing {}\n".format(year))
